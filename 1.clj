@@ -2,9 +2,18 @@
 ;; Find the sum of all the multiples of 3 or 5 below 1000.
 
 
+;; get integers
+(range 1 1000)
 
+;; get anything with a modulus of 0 using `zero?`
+(filter #(zero? (mod % 3)) (range 1 1000))
+
+;; add them
+(apply + (filter #(zero? (mod % 3)) (range 1 1000)))
+
+;; put into a function
 (defn get-sum [den]
-  (reduce + (filter #(zero? (mod % den)) (range 1 1000)))
+  (apply + (filter #(zero? (mod % den)) (range 1 1000)))
   )
 
 
