@@ -49,17 +49,16 @@
 ;; anonymous function
 ;; pass one item to the function
 ((fn [x] (+ x 1)) 3)
+(#(+ % 1) 3)
+
+;; more complex anonymous function
 ((fn [x] (zero? (mod x 3))) 16)
-
-;; pass a collection to the function
-((fn [x] (zero? (mod x 3))) (range 1 11))
-
 (#(zero? (mod % 3)) 16)
 
-(filter
- #(zero?
-   (mod % 3))
- (range 1 11))
+
+;; filter - anon function and coll
+(filter #(even? %) [1 2 2 3 4 5 6 6])
+
 
 
 ;; loop
@@ -79,4 +78,10 @@
 
 
 ;; iterate - infinite sequence of  x,   (f x),   (f (f x)) etc 
- 
+(take 4 (iterate inc 0))
+
+
+;; apply and concat
+(apply concat [[1 2] [3 4] [5 6]])
+
+(apply + [1 2 3 4 ])

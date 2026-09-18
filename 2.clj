@@ -9,8 +9,22 @@
 (defn fib-next-two [[a b]]
   [(+ a b)  (+ a b b)])
 
-
 (fib-next-two [1 2])
 
-(take 6 (iterate fib-next-two [1 2]))
 
+;; get first 16 pairs (i found 16 manually)
+(take 16 (iterate fib-next-two [1 2]))
+
+;; collapse into one coll
+(apply concat (take 16 (iterate fib-next-two [1 2])))
+
+;; get evens
+(filter #(even? %) (apply concat (take 16 (iterate fib-next-two [1 2]))))
+
+;; add them
+(apply +
+       (filter 
+        #(even? %) 
+        (apply concat 
+               (take 16 (iterate fib-next-two [1 2]))))
+)
