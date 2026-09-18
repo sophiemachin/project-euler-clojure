@@ -34,6 +34,7 @@
 
 ;; map - apply function to each item in collection
 (map inc (range 1 5))
+
 ;;map - passing collections in parallel
 (map + [1 2 3] [4 5 6])
 (map + [1 2 3] [4 5 6] [7 8 9])
