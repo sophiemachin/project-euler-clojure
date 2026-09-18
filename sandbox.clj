@@ -63,11 +63,20 @@
 
 
 ;; loop
-
-(loop [x 10]
-  (when (> x 1)
+(loop [x 1]
+  (when (< x 10)
     (println x)
-    (recur (- x 2))))
+    (recur (+ x 1))))
 
-(loop []
- )
+
+;; doseq
+(#(doseq [x (range 1 11)]
+    (println x)))
+
+
+;; take - Returns a lazy sequence of the first n items in coll
+(take 3 ["z" "y" "x" "w" "v" "u" "t" "s" "r" "q"])
+
+
+;; iterate - infinite sequence of  x,   (f x),   (f (f x)) etc 
+ 

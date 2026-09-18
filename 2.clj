@@ -6,11 +6,11 @@
 ;; do not exceed four million, find the sum of the even-valued terms.
 
 
-(defn fib [n]
-  ())
+(defn fib-next-two [[a b]]
+  [(+ a b)  (+ a b b)])
 
 
-(loop [x 10]
-  (when (> x 1)
-    (println x)
-    (recur (- x 2))))
+(fib-next-two [1 2])
+
+(take 6 (iterate fib-next-two [1 2]))
+
